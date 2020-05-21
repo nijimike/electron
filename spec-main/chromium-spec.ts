@@ -1233,7 +1233,7 @@ describe('chromium features', () => {
       w.loadURL(pdfSource);
       const [, contents] = await emittedOnce(app, 'web-contents-created');
       expect(contents.getURL()).to.equal('chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html');
-      await emittedOnce(contents, 'did-finish-load');
+      await emittedOnce(contents, 'did-frame-finish-load');
     });
 
     it('opens when loading a pdf resource in a iframe', async () => {

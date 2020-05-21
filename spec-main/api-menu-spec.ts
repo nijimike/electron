@@ -885,9 +885,14 @@ describe('Menu module', function () {
       const appProcess = cp.spawn(process.execPath, [appPath]);
 
       let output = '';
-      appProcess.stdout.on('data', data => { output += data; });
-
-      await emittedOnce(appProcess, 'exit');
+      await new Promise((resolve) => {
+        appProcess.stdout.on('data', data => {
+          output += data;
+          if (data.indexOf('Window has') > -1) {
+            resolve();
+          }
+        });
+      });
       expect(output).to.include('Window has no menu');
     });
 
