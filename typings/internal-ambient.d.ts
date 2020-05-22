@@ -1,4 +1,5 @@
 declare var internalBinding: any;
+declare var binding: { get: any; process: any; createPreloadScript: (src: string) => Function };
 
 declare const BUILDFLAG: (flag: boolean) => boolean;
 
