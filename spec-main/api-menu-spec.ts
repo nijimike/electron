@@ -10,7 +10,6 @@ import { closeWindow } from './window-helpers';
 const fixturesPath = path.resolve(__dirname, 'fixtures');
 
 describe('Menu module', function () {
-  this.timeout(5000);
   describe('Menu.buildFromTemplate', () => {
     it('should be able to attach extra fields', () => {
       const menu = Menu.buildFromTemplate([
